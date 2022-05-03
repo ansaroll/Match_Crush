@@ -8,6 +8,6 @@ npm install
 Open with live Server or Open on Browser
 
 
-#Future
+# Future
 
 Add an comparaison of the Hamming Code . 
