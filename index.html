@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="couple.css" rel="stylesheet">
+    <title>Couple</title>
+</head>
+<body>
+    
+      <h1 class="text-xl py-8 text-center bg-dark font-bold">
+        Verify if you and your crush match .
+      </h1>
+
+      <div class="text-center p-4 m-4">
+
+        
+            <input class="focus:outline-none focus:ring bg-gray-200  focus:border-blue-500 outline-none p-3 bg-dark m-2 drop-shadow rounded-md" type="text" name="yourname" id="Yname" placeholder="Your name" autocomplete="none">
+            <input class="focus:outline-none focus:ring bg-red-200 outline-none p-3 bg-dark m-2 drop-shadow rounded-md" type="text" name="hername" id="Hname" placeholder="His , Her name" autocomplete="none">
+            <button title="button" class="text-red-300 font-bold" type="submit" onclick="onSubmit()"> I love you </button>
+          
+
+      </div>
+      
+
+      <div id="resultat" class="hidden">
+        <div class="mx-32">
+            <div class="text-center p-4 m-4 flex flex-row space-x-4" >
+
+              <div class="bg-slate-600 w-1/2 p-8 border-solid border-indigo-600 text-gray-100 rounded-md" >
+                <p id="Y"></p>
+              </div > 
+            
+              <div class="bg-red-200 w-1/2 p-8 border-solid border-indigo-600 text-gray-800 rounded-md" >
+                <p id="H"></p>
+              </div >
+              
+            </div>
+        </div>
+      </div>
+
+
+      <script>
+
+          var Yname = "";
+          var Hname = "";
+          // var tab = new Array()
+
+        function onRetrieve() {
+
+          Yname = document.getElementById("Yname").value ;
+          Hname = document.getElementById('Hname').value ;
+
+          return [ Yname , Hname ]
+        }
+
+        function split(tab) {
+          tab1 = tab[0] ;
+          tab2 = tab[1] ;
+          // tabs1 = split(tab1);
+          // alert(tab1);
+          var s = "";
+          var s2 = "";
+          for (var i = 0; i < tab1.length; i++) {
+            // const element = array[i];
+            s+=tab1.charCodeAt(i).toString(2) + " ";
+          }
+
+          for (var i = 0; i < tab2.length; i++) {
+            // const element = array[i];
+            s2+=tab2.charCodeAt(i).toString(2) + " ";
+          }
+
+          // alert(tab1 + " => "+ s + "\n \n "+ tab2 + " => " + s2)
+
+          document.getElementById("Y").innerHTML = tab1 + " => "+ s ;
+          document.getElementById("H").innerHTML = tab2 + " => " + s2 ;
+
+          document.getElementById("resultat").classList = "block" ;
+
+        }
+
+        function  onSubmit(){
+          var tab = onRetrieve();
+          if (tab[0] !== "" && tab[1] !== "") {
+            split(tab);
+          }
+          // alert(tab[0]);      
+        }
+
+        // const a ="salama";
+        // var v = ""
+        // for(var i=0;i<a.length;i++){
+        //   v+=a.charCodeAt(i).toString(2) + " ";
+        // }
+        // // console.log(v)
+        // alert(v)
+
+
+      </script>
+</body>
+</html>
